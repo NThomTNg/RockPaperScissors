@@ -7,18 +7,18 @@ const computerScoreDisplay = document.getElementById("computerScoreDisplay");
 let playerScore = 0;
 let computerScore = 0;
 
-function playGame(playerChoice) {
+function playGame(playerChoice) { // Function for how the game works
 
-    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    const computerChoice = choices[Math.floor(Math.random() * 3)]; // How the choice of the computer is made
     console.log(computerChoice);
 
     let result = "";
 
-    if (playerChoice == computerChoice){
+    if (playerChoice == computerChoice){ // If the player choice is the same as the computer = tie
         result = "No one wins lol!"
     }
     else{
-        switch(playerChoice){
+        switch(playerChoice){ // Switch case for win condition
         case "rock":
             result = (computerChoice === "scissors") ? "You win naicuuu!" : "You lost dumbo";
             break;
@@ -31,12 +31,14 @@ function playGame(playerChoice) {
         }
     }
 
-        playerDisplay.textContent = `Player : ${playerChoice}`;
+    // Display names of computer and player
+        playerDisplay.textContent = `Player : ${playerChoice}`; 
         computerDisplay.textContent = `Computer : ${computerChoice}`;
         resultDisplay.textContent = result;
 
         resultDisplay.classList.remove("winText", "loseText");
 
+    // Switch case to update the score for player and computer
         switch(result){
             case "You win naicuuu!":
                 playerScore++;
